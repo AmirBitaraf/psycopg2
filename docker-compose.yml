@@ -1,0 +1,20 @@
+version: '2.8'
+services:
+  compiler:
+    build:
+      context: .
+    environment:
+      - PLAT=manylinux2014_aarch64
+      - PACKAGE_NAME=psycopg2-binary
+      - PYVERS=cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39 cp310-cp310 cp311-cp311
+      - PSYCOPG2_TESTDB=postgres
+      - PSYCOPG2_TESTDB_HOST=postgresql
+      - PSYCOPG2_TESTDB_USER=postgres
+      - PSYCOPG2_TESTDB_PASSWORD=password
+      - PSYCOPG2_TEST_FAST=0
+    command: /bin/bash
+
+  postgresql:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: password

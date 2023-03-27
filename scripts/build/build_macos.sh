@@ -36,7 +36,7 @@ distdir="${prjdir}/dist/psycopg2-$version"
 mkdir -p "$distdir"
 
 # Install required python packages
-pip install -U pip wheel delocate==0.10.3
+pip install -U pip wheel delocate==0.10.2
 
 # Replace the package name
 if [[ "${PACKAGE_NAME:-}" ]]; then
